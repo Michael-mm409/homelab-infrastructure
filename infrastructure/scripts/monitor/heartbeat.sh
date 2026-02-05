@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 1. Load Configuration
-ENV_FILE="$HOME/scripts/lab_config.env"
+ENV_FILE="$HOME/infrastructure/scripts/lab_config.env"
 if [ -f "$ENV_FILE" ]; then
     export $(grep -v '^#' "$ENV_FILE" | xargs)
 else
