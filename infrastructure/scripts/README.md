@@ -7,9 +7,8 @@ This directory contains all automation scripts for the homelab infrastructure, o
 ```
 infrastructure/scripts/
 ├── monitor/          # System monitoring and health checks
-├── sync/             # Data synchronization and backup scripts
-├── system/           # System maintenance and failover scripts
-├── backup/           # Backup and archival operations
+├── backup/           # Backup and archival operations (sync to VPS, archival to cloud)
+├── system/           # System failover and maintenance
 ├── maintenance/      # Routine maintenance tasks
 ├── security/         # Security scanning and hardening
 ├── logs/             # Log files from script executions
@@ -25,21 +24,17 @@ Scripts for system monitoring and health reporting:
 - **heartbeat.sh** - Sends periodic system health reports to Discord with metrics (uptime, CPU load, disk, RAM)
 - **status_check.sh** - Checks overall system status and displays interactive dashboard
 
-### Sync Scripts (`sync/`)
-Data synchronization and backup automation:
-- **sync_data.sh** - Synchronizes data to the VPS via rsync and reports status to Discord
-- **sync_from_home.sh** - Master sync from home server including DB dumps, code sync, and Docker pre-builds
+### Backup Scripts (`backup/`)
+Backup and archival operations - the primary backup strategy:
+- **sync_data.sh** - Syncs data to VPS via rsync and reports status to Discord
+- **sync_from_home.sh** - Master backup from home server: DB dumps, code sync, Docker pre-builds
+- **migrate_vps.sh** - Long-term archival to Google Drive with streaming tar and rclone
 
 ### System Scripts (`system/`)
-System maintenance and failover operations:
-- **migrate_vps.sh** - Handles VPS migration with rclone and streaming archives
+System failover and maintenance:
 - **takeover.sh** - Automatic failover script triggered on heartbeat loss
 - **generate_html.sh** - Generates HTML status dashboard
 - **failover.env** - Configuration for failover operations
-
-### Backup Scripts (`backup/`)
-Backup and archival operations:
-- **lab-backup.sh** - Backup automation script
 
 ### Maintenance Scripts (`maintenance/`)
 Routine maintenance tasks:
@@ -89,14 +84,14 @@ Scripts are designed to be run via cron jobs. To execute manually:
 ./monitor/heartbeat.sh
 ./monitor/status_check.sh
 
-# Sync scripts (usually run from VPS via cron)
-./sync/sync_data.sh
-./sync/sync_from_home.sh
+# Backup & archival (primary backup strategy)
+./backup/sync_data.sh              # Quick sync to VPS
+./backup/sync_from_home.sh         # Master backup with DB dump
+./backup/migrate_vps.sh            # Archive to Google Drive
 
 # System scripts
-./system/takeover.sh          # Failover check (runs every 5 min)
-./system/migrate_vps.sh       # VPS migration
-./system/generate_html.sh     # Generate status HTML
+./system/takeover.sh               # Failover check (runs every 5 min)
+./system/generate_html.sh          # Generate status HTML
 ```
 
 ## Setup Instructions
