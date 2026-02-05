@@ -1,4 +1,4 @@
-# Infrastructure Automation Scripts
+ # Infrastructure Automation Scripts
 
 This directory contains all automation scripts for the homelab infrastructure, organized by function.
 
