@@ -13,6 +13,20 @@ Edge Ingress Strategy I utilize a Cloudflare Tunnel (Connector ID: 881608fb...) 
 
 **Benefit:** This architecture hides the home lab's public IP and prevents direct external scans of the local network.
 
+### Security Architecture
+![Network Security Topology](./docs/network-topology.png)
+
+- **Zero-Trust Design:** No direct public access to internal services
+- **Defense in Depth:** Multiple security layers at each zone
+- **Key Security Controls:**
+  - Cloudflare Edge (DDoS, WAF, TLS Termination)
+  - Tailscale VPN for all management access
+  - SSH key authentication only (ed25519)
+  - Container isolation with secret management
+  - Encrypted database backups via Tailscale tunnel.
+
+[View Security Model Documentation](./docs/security-model.md)
+
 ## 🛠 Hardware Stack
 This environment utilizes a hybrid-cloud architecture consisting of local Proxmox hypervisors and high-performance cloud gateways.
 - **Node 01**: GMKtec M5 Plus (Proxmox VE)
