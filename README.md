@@ -23,14 +23,16 @@ This environment utilizes a hybrid-cloud architecture consisting of local Proxmo
 - **docs/**: Detailed hardware specs and the security model governing the lab.
 - **infrastructure/**: Configuration and setup files for services.
   - **docker/**: Production-ready Docker Compose and Dockerfile configurations.
-  - **scripts/**: Infrastructure-specific maintenance scripts.
-- **scripts/**: Automated operations and system maintenance.
-  - **monitor/**: Health checks and status reporting (heartbeat, status checks).
-  - **sync/**: Data synchronization and backup automation.
-  - **system/**: Failover, migration, and maintenance operations.
-  - **logs/**: Execution logs and outputs.
+  - **scripts/**: Automated operations and system maintenance.
+    - **monitor/**: Health checks and status reporting (heartbeat, status checks).
+    - **sync/**: Data synchronization and backup automation.
+    - **system/**: Failover, migration, and maintenance operations.
+    - **backup/**: Backup and archival operations.
+    - **maintenance/**: Routine maintenance tasks.
+    - **security/**: Security scanning and hardening.
+    - **logs/**: Execution logs and outputs.
 - **vps-gateway/**: VPS gateway configuration and deployment.
 - **CHANGELOG.md**: A detailed audit trail of all infrastructure modifications.
 
 ## 🚀 Quick Start
-See [scripts/README.md](./scripts/README.md) for automation setup and cron job configuration.
+See [infrastructure/scripts/](./infrastructure/scripts/) for automation setup and cron job configuration.
