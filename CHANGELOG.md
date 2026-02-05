@@ -6,10 +6,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- **Repository Documentation**: Comprehensive README files added to document infrastructure components and automation scripts.
+- **Git Submodule Integration**: Integrated `University-Marks-Manager` as a Git submodule to provide visibility into the application within the infrastructure repository.
+- **Scripts Reorganization**: Consolidated and reorganized infrastructure automation scripts for clarity and maintainability.
+  - Moved sync and archival operations to `backup/` folder to emphasize backup strategy
+  - Organized remaining operations into focused categories (monitor, system, maintenance)
+  - Added comprehensive `infrastructure/scripts/README.md` with setup and usage instructions
+
+### Changed
+- **Script Structure**: Reorganized `/scripts/` into `/infrastructure/scripts/` to co-locate automation with infrastructure configuration.
+  - Monitor: `heartbeat.sh`, `status_check.sh`
+  - Backup: `sync_data.sh`, `sync_from_home.sh`, `migrate_vps.sh`
+  - System: `takeover.sh`, `generate_html.sh` with `failover.env`
+  - Maintenance: `docker-cleanup.sh`
+
+### Removed
+- **Empty Placeholders**: Removed unimplemented placeholder scripts for later feature development:
+  - `update-tunnel.sh` (cloudflared updates - can implement when needed)
+  - `trivy-scan.sh` (vulnerability scanning - can implement when needed)
+
 ### Planned
 - Integration of AdGuard Home as a recursive DNS resolver for the Proxmox environment.
 - Implementation of automated Docker image updates via Watchtower.
-- Upgrade cloudflared to the latest stable version to address security patches and optimize tunnel performance.
 - Refactor .env loading to handle complex strings and add a timeout to the curl command to prevent script hanging during network outages.
 
 ## [1.2.0] - 2026-02-05
