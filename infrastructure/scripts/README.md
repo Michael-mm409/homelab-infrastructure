@@ -38,12 +38,7 @@ System failover and maintenance:
 
 ### Maintenance Scripts (`maintenance/`)
 Routine maintenance tasks:
-- **docker-cleanup.sh** - Prunes unused Docker resources
-- **update-tunnel.sh** - Cloudflare tunnel maintenance
-
-### Security Scripts (`security/`)
-Security scanning and hardening:
-- **trivy-scan.sh** - Vulnerability scanning with Trivy
+- **docker-cleanup.sh** - Prunes unused Docker resources to maintain system health
 
 ## Configuration
 
