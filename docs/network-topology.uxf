@@ -1,0 +1,117 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLFrame</id><coordinates><x>184</x><y>104</y><w>248</w><h>176</h></coordinates><panel_attributes>UNTRUSTED ZONE
+Public Internet
+bg=red
+layer=-1
+group=group-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>520</x><y>80</y><w>280</w><h>176</h></coordinates><panel_attributes>DMZ / EDGE SECURITY
+Cloudflare Edge
+bg=yellow
+layer=-1
+group=group-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>1072</x><y>176</y><w>448</w><h>496</h></coordinates><panel_attributes>TRUSTED ZONE
+Internal Lab Network (192.168.3.0/24)
+bg=#90EE90
+layer=-1
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>200</x><y>136</y><w>208</w><h>128</h></coordinates><panel_attributes>Public Internet Users
+--
+🌐 Web Browsers
+📱 Mobile Devices
+💻 Any Location
+--
+Access: HTTPS Only
+No Direct Lab Access
+group=group-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>544</x><y>112</y><w>240</w><h>128</h></coordinates><panel_attributes>Cloudflare Edge Network
+--
+🔒 DDoS Protection
+🔒 WAF (Web Firewall)
+🔒 TLS Termination
+🔒 Argo Tunnel
+--
+Connector: 881608fb...
+group=group-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1104</x><y>216</y><w>144</w><h>80</h></coordinates><panel_attributes>Home Router
+--
+✅ NO Port Forwarding
+✅ NO Public Exposure
+--
+Perimeter Defense
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1104</x><y>320</y><w>384</w><h>88</h></coordinates><panel_attributes>Proxmox VE Hypervisor (Node 01)
+GMKtec M5 Plus | AMD Ryzen 7 5825U | 32GB RAM
+--
+🔒 Tailscale VPN Management Only
+🔒 SSH Key Auth (Ed25519) - No Passwords
+Network: 192.168.3.0/24
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1120</x><y>440</y><w>160</w><h>88</h></coordinates><panel_attributes>Cloudflare-Gateway
+LXC (ID 100)
+--
+Debian 12
+cloudflared service
+--
+🔒 Outbound Only
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1344</x><y>440</y><w>160</w><h>104</h></coordinates><panel_attributes>Docker LXC
+192.168.3.12
+--
+🐳 marks-manager-web
+🐳 marks-manager-nginx
+--
+🔒 Container Isolation
+🔒 Secret Management
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1120</x><y>560</y><w>160</w><h>88</h></coordinates><panel_attributes>PostgreSQL LXC
+192.168.3.11
+--
+Database Server
+--
+🔒 .pgpass Auth
+🔒 Encrypted Backups
+group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>568</x><y>416</y><w>208</w><h>160</h></coordinates><panel_attributes>Sydney VPS (Node 02)
+BinaryLane | Debian 12
+--
+🔄 Failover Node
+💾 Backup Destination
+🐳 Pre-built Images
+--
+🔒 Tailscale VPN
+🔒 SSH Keys Only
+--
+Public: 112.213.35.50</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1616</x><y>328</y><w>208</w><h>96</h></coordinates><panel_attributes>Management Workstation
+Zorin OS / Windows 11
+--
+VS Code, Git, Docker
+--
+🔒 Tailscale Client
+🔒 SSH Key Pair</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>408</x><y>184</y><w>152</w><h>32</h></coordinates><panel_attributes>lt=&lt;-
+HTTPS Traffic
+fg=blue</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>776</x><y>176</y><w>360</w><h>320</h></coordinates><panel_attributes>lt=&lt;-
+🔒 Cloudflare Tunnel
+(Outbound Only)
+fg=green</panel_attributes><additional_attributes>10;10;100;10;100;380;430;380</additional_attributes></element><element><id>Relation</id><coordinates><x>1272</x><y>480</y><w>88</w><h>32</h></coordinates><panel_attributes>lt=&lt;-
+Nginx Proxy
+fg=black
+group=group-0</panel_attributes><additional_attributes>90;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1392</x><y>544</y><w>136</w><h>208</h></coordinates><panel_attributes>lt=&lt;-
+🔒 Database Connection
+fg=black</panel_attributes><additional_attributes>10;240;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>768</x><y>512</y><w>360</w><h>96</h></coordinates><panel_attributes>lt=&lt;-
+🔒 Tailscale Tunnel
+pg_dump Backup
+fg=#9B30FF</panel_attributes><additional_attributes>430;90;140;100;140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>768</x><y>488</y><w>360</w><h>32</h></coordinates><panel_attributes>lt=&lt;-
+🔄 rsync Code Sync (Tailscale)
+fg=#9B30FF</panel_attributes><additional_attributes>430;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1488</x><y>352</y><w>144</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+🔒 Tailscale VPN
+SSH Admin
+fg=#9B30FF</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1176</x><y>280</y><w>64</w><h>56</h></coordinates><panel_attributes>lt=&lt;-
+Internal
+Network
+fg=black
+group=group-0</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>320</x><y>632</y><w>248</w><h>136</h></coordinates><panel_attributes>SECURITY CONTROLS
+--
+🔒 = Security Control
+🔄 = Backup/Sync
+🐳 = Docker Container
+--
+Colors:
+• Red = Untrusted
+• Yellow = DMZ
+• Green = Trusted Internal
+• Purple = Encrypted VPN
+• Blue = Public HTTPS
+bg=#F0F0F0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>664</x><y>744</y><w>776</w><h>64</h></coordinates><panel_attributes>HOMELAB NETWORK SECURITY ARCHITECTURE - michaelslabs-devsecops
+--
+Zero-Trust Design: No direct public access | Defense in Depth: Multiple security layers
+Shift-Left Security: Protection at every layer | Automated Failover: High Availability
+bg=#E6F3FF</panel_attributes><additional_attributes></additional_attributes></element></diagram>
