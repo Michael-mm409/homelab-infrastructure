@@ -1,0 +1,2 @@
+2026/03/05 04:03:53 [error] 416#416: *102 open() "/var/www/html/computeMetadata/v1/instance/id" failed (2: No such file or directory), client: 192.168.8.9, server: localhost-nginx-proxy-manager, request: "GET /computeMetadata/v1/instance/id HTTP/1.1", host: "metadata.google.internal"
+2026/03/05 04:04:01 [error] 418#418: *106 open() "/var/www/html/computeMetadata/v1/instance/id" failed (2: No such file or directory), client: 192.168.8.9, server: localhost-nginx-proxy-manager, request: "GET /computeMetadata/v1/instance/id HTTP/1.1", host: "metadata.google.internal"

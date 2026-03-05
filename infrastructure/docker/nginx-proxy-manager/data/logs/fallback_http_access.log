@@ -1,0 +1,2 @@
+[05/Mar/2026:04:03:53 +0000] 404 - GET http metadata.google.internal "/computeMetadata/v1/instance/id" [Client 192.168.8.9] [Length 150] [Gzip -] "Wget/1.25.0" "-"
+[05/Mar/2026:04:04:01 +0000] 404 - GET http metadata.google.internal "/computeMetadata/v1/instance/id" [Client 192.168.8.9] [Length 150] [Gzip -] "Wget/1.25.0" "-"

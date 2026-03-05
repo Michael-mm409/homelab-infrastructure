@@ -1,0 +1,1 @@
+2026/03/02 08:06:05 [error] 195#195: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.8.9, server: marks.local, request: "HEAD /api/ HTTP/1.1", upstream: "http://192.168.8.9:18000/api/", host: "marks.local"
