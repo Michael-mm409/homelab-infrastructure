@@ -46,6 +46,17 @@ This environment is built on a dedicated local "Private Cloud" architecture.
 
 ---
 
+## 🧪 Security Testing & Verification (ICTNWK421)
+To meet the "Testing" requirements of ICTNWK421, I utilize automated scripts to verify network integrity and security perimeters:
+
+Automated Health Audits: The status_check.sh and heartbeat.sh scripts provide real-time telemetry on service availability and tunnel integrity.
+
+Ingress Validation: Periodic verification that zero ports are exposed to the public internet, ensuring all traffic is strictly routed through the authenticated Cloudflare Tunnel.
+
+Log Analysis: Continuous monitoring of failover_log.txt and rsync_log.txt to detect and respond to unauthorized access attempts or synchronization failures.
+
+---
+
 ## 🤖 Systems Automation & IaC
 This lab utilizes an **Infrastructure as Code (IaC)** mindset to maintain security baselines across all local nodes.
 
